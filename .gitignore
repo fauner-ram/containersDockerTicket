@@ -1,0 +1,22 @@
+# Archivos y carpetas que no deben subirse al repositorio
+# Dependencias y módulos
+node_modules/
+# Archivos de imágenes Docker grandes
+*.tar
+# Archivos de entorno y secretos
+.env
+.env.*
+# Salidas de build y distribución
+/dist/
+/build/
+frontend/dist/
+# Archivos temporales y de sistema
+.DS_Store
+Thumbs.db
+*.log
+coverage/
+# Configuración de VSCode
+.vscode/
+# Otros archivos temporales
+*.tmp
+*.swp
