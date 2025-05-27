@@ -1,0 +1,70 @@
+{
+	"global": {
+		"error_server": "An error occurred on the server",
+		"test_created": "The test was successfully created",
+		"invalid_body": "Incorrect request data",
+		"successful_operation": "The operation was successful",
+		"bad_credentials": "Incorrect credentials",
+		"not_authorization": "You do not have authorization permissions",
+		"not_found": "The resource was not found",
+		"not_file": "No files to upload - key: file",
+		"error_routes": "Error in required fields"
+	},
+	"login": {
+		"successful": "OK",
+		"error_server": "An error occurred on the server",
+		"error_invalid_credentials": "the email or password is incorrect",
+		"file_required": "this is a required field",
+		"file_required_password": "this is a required field",
+		"file_required_tex": "this is a required field as string",
+		"error_user_not_found": "The user does not exist"
+	},
+	"company": {
+		"successful": "Ok",
+		"created": "Ok",
+		"error_server": "An error occurred on the server",
+		"required_field_text": "this is a required field",
+		"found": "client found",
+		"emptyResponse": "No clients found",
+		"notFound": "The client was not found",
+		"invalid_file_type": "invalid file type",
+		"invalid_id": "The id is not valid"
+	},
+	"user": {
+		"created": "Ok",
+		"error_server": "An error occurred on the server",
+		"required_field_text": "this is a required field"
+	},
+	"boxDimension": {
+		"found": "Ok",
+		"error_server": "An error occurred on the server"
+	},
+	"excel": {
+		"template_generated": "Excel template generated",
+		"error_server": "An error occurred on the server",
+		"error_empty_file": "The file does not have data",
+		"templateFileNotFound": "The file is not the BoxKitFile.xlsx with the BoxKitFile sheet",
+		"noValidRows": "There are no valid rows in the file",
+		"required_field_text": "this is a required field"
+	},
+	"freightChargeMethod": {
+		"found": "Ok",
+		"error_server": "An error occurred on the server"
+	},
+	"packMaterialType": {
+		"found": "Ok",
+		"error_server": "An error occurred on the server"
+	},
+	"weightData": {
+		"found": "Ok",
+		"error_server": "An error occurred on the server"
+	},
+	"attributeData": {
+		"error_creating": "An error occurred while creating",
+		"created": "Ok"
+	},
+	"ticket": {
+		"error_server": "ticket.error_server",
+		"updated": "ticket.updated"
+	}
+}

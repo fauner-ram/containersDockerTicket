@@ -1,0 +1,46 @@
+<nz-layout class="app-layout">
+
+    <!-- <nz-sider class="menu-sidebar custom-bg" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null"> -->
+  
+    <nz-sider class="menu-sidebar custom-bg" [nzBreakpoint]="'md'" [(nzCollapsed)]="isCollapsed" nzWidth="241px"  [nzCollapsedWidth]="80" nzBreakpoint="md" [nzTheme]="'light'" (nzCollapsedChange)="onCollapse($event)">
+
+        <div class="sidebar-logo custom-bg">
+            <img class="logo-hone" src="../../../assets/img/login/boxLogin.png" alt="logo">
+        </div>
+
+        <div class="text-discover"> <p>Discover</p></div>
+
+        <ul nz-menu nzTheme="light" nzMode="inline" class="sider-ul custom-bg">
+            @for(item of menu; track item.id) {
+            <li nz-menu-item routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a [routerLink]="item.link">
+                    <img *ngIf="item.icon.endsWith('.png')" [src]="item.icon" alt="{{ item.title }}" class="menu-icon" />
+                    <span *ngIf="!item.icon.endsWith('.png')" nz-icon [nzType]="item.icon" class="sider-ul-icon"></span>
+                    <span *ngIf="!isCollapsed">{{ item.title }}</span>
+                </a>
+            </li>
+            }
+
+            <!-- Botón cerrar sesión -->
+            <!-- <li nz-menu-item class="close-session-item" (click)="closeSession()">
+                <span nz-icon nzType="poweroff"></span>
+                <span *ngIf="!isCollapsed">Log Out</span>
+            </li> -->
+            
+        </ul>
+
+        <div class="close-session-container" (click)="closeSession()">
+            <span nz-icon nzType="poweroff" class="close-session-item" (click)="closeSession()"></span>
+            <span class="close-sesion-text" *ngIf="!isCollapsed" (click)="closeSession()">Log Out</span>
+        </div>
+    </nz-sider>
+
+    <nz-layout>
+        <nz-content>
+            <div class="inner-content-admin">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+    </nz-layout>
+
+</nz-layout>

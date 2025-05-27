@@ -1,0 +1,145 @@
+<!-- <nz-alert
+  nzType="warning"
+  nzMessage="Warning: Incomplete File"
+  nzDescription="It looks like the file you uploaded is missing an entire column with dimension details. This might affect data processing. Please review it and update the document if necessary. Let us know if you need any help!"
+  [nzShowIcon]="true"
+  class="alert-box"
+/> -->
+
+<div class="card-wrong">
+    <nz-card class="into-card">
+        <div class="ant-card-bodys" >
+            <!-- <div class="icon-circle">
+            </div> -->
+            <img src="../../../../assets/img/warning.png" alt="">
+            <div class="summary-text">
+                <div class="summary-tittle"><span>Warning: Incomplete File</span></div>
+                <div class="summary-pagraph">
+                    <span>It looks like the file you uploaded is missing an entire column with dimension details. </span>
+                   
+                    
+                </div>
+                <div class="summary-pagraph-2">
+                    <span>This might affect data processing.</span>
+                    
+                </div>
+                <div class="summary-pagraph-3">
+                    <span>Please review it and update the document if necessary. Let us know if you need any help!</span>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <!-- <div class="position1">
+            <label id="upload" class="custom-file-upload1"
+            (dragover)="onDragOver($event)" 
+            (dragleave)="onDragLeave($event)" 
+            (drop)="onDrop($event, 2)">
+
+                <input type="file" name="file" id="upload-file" accept=".xlsx" class="custom-file-input" 
+                (change)="loadFiles2($event, 2)" hidden>
+                <div class="upload-content">
+                    <img src="../../../../assets/img/Icon.png" alt="Upload Icon" class="upload-icon">                          
+                    <p class="selected-file-text">Drop your file here, or Browse</p>
+                </div>
+                <span class="text-size">Max size 10 MB</span>
+                <p *ngIf="file2"  style="font-size: 16px; color: blue; font-family: sans-serif;">Selected file: {{ file2?.name }}</p>
+                 
+            </label>                       
+           
+        </div> -->
+      
+        <!-- <div nz-row nzJustify="end" class="button-group" *ngIf="file2" >
+            <button nz-button nzType="default" class="button-draft">Save as a Draft</button>
+            <button nz-button nzType="primary" class="button-save" (click)="uploadExcelShipmentData()" [disabled]="isSubmitUpLoadExcel2"  [nzLoading]="isSubmitUpLoadExcel2">Save</button>
+        </div> -->
+    </nz-card>
+</div>
+
+<div class="error-tips">
+  <strong><em>Common Errors That Prevent the Platform from Processing Your File:</em></strong>
+  <ol>
+    <li>Missing column – The column with dimension details is not included in the file.</li>
+    <li>Incorrect or misspelled headers – Column names do not match the expected format.</li>
+    <li>Incorrect data format – Some cells contain text instead of numbers in fields that require numeric values.</li>
+    <li>Blank values – Required fields contain empty cells.</li>
+    <li>Inconsistent measurement units – A mix of cm, mm, inches, or other units without a standard format.</li>
+    <li>Duplicate key identifiers – Multiple rows have the same ID, SKU, or other unique identifier.</li>
+  </ol>
+</div>
+
+<!-- <div class="upload-box">
+  <p><strong>Drop Details here</strong></p> -->
+  <!-- <nz-upload
+    nzAction="/api/upload" 
+    [nzShowUploadList]="false"
+    [nzMultiple]="false"
+    [nzLimit]="1"
+    [nzMaxFileSize]="10"
+    [nzBeforeUpload]="beforeUpload"
+    (nzChange)="handleChange($event)"
+  >
+    <button nz-button>
+      <i nz-icon nzType="upload"></i>
+      Drop your file here, or Browse
+    </button>
+    <div>Max size 10 MB</div>
+  </nz-upload> -->
+<!-- </div> -->
+
+<p style="color: #878787;" hidden><strong>Drop Details here</strong></p>
+<div class="box-kit mt-5" hidden>             
+    <!-- <nz-card > -->
+        
+        <div class="position1">
+            <label id="upload" class="custom-file-upload1"
+            (dragover)="onDragOver($event)" 
+            (dragleave)="onDragLeave($event)" 
+            (drop)="onDrop($event,1)">
+                <input type="file" name="file" id="upload-file" accept=".xlsx" class="custom-file-input" 
+                (change)="loadFiles1($event, 1)" hidden>
+
+                <div class="upload-content">
+                    <img src="../../../../assets/img/Icon.png" alt="Upload Icon" class="upload-icon">                          
+                    <p class="selected-file-text">Drop your file here, or Browse</p>
+                </div>
+                <span class="text-size">Max size 10 MB</span>
+                <p *ngIf="file1"  style="font-size: 16px; color: blue; font-family: sans-serif;">Selected file: {{ file1.name }}</p>
+            </label>                      
+           
+        </div>
+      
+        <div nz-row nzJustify="end" class="button-group" *ngIf="file1" >
+            <!-- <button nz-button nzType="default" class="button-draft"  >Save as a Draft</button> -->
+            <button nz-button nzType="primary" class="button-save" (click)="uploadExcelBoxKitData()" [disabled]="isSubmitUpLoadExcel1"  [nzLoading]="isSubmitUpLoadExcel1">Save</button>
+        </div>
+    <!-- </nz-card> -->
+</div>
+
+<div class="box-kit mt-5" hidden>
+    <nz-card >
+        <div class="position1">
+            <label id="upload" class="custom-file-upload1"
+            (dragover)="onDragOver($event)" 
+            (dragleave)="onDragLeave($event)" 
+            (drop)="onDrop($event, 2)">
+
+                <input type="file" name="file" id="upload-file" accept=".xlsx" class="custom-file-input" 
+                (change)="loadFiles2($event, 2)" hidden>
+                <div class="upload-content">
+                    <img src="../../../../assets/img/Icon.png" alt="Upload Icon" class="upload-icon">                          
+                    <p class="selected-file-text">Drop your file here, or Browse</p>
+                </div>
+                <span class="text-size">Max size 10 MB</span>
+                <p *ngIf="file2"  style="font-size: 16px; color: blue; font-family: sans-serif;">Selected file: {{ file2.name }}</p>
+                 
+            </label>                       
+           
+        </div>
+      
+        <div nz-row nzJustify="end" class="button-group" *ngIf="file2" >
+            <!-- <button nz-button nzType="default" class="button-draft">Save as a Draft</button> -->
+            <button nz-button nzType="primary" class="button-save" (click)="uploadExcelShipmentData()" [disabled]="isSubmitUpLoadExcel2"  [nzLoading]="isSubmitUpLoadExcel2">Save</button>
+        </div>
+    </nz-card>
+</div>

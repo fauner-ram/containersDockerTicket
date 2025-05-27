@@ -1,0 +1,50 @@
+.custom-modal {
+    text-align: center;
+    padding: 20px;
+}
+
+.tittle-ok {
+    font-family: Galano Grotesque;
+    font-size: 34px;
+    line-height: 40px;
+    color: #1E202C;
+    font-weight: bold;
+}
+
+.icon {
+    width: 50%;
+    margin: 15px 0;
+}
+
+.buttons {
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+button {
+    position: relative;
+    display: flex;
+    width: 20%;
+    margin: 5px;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #365BFA;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+img {
+    width: 207px;
+}
+
+.text-footer {
+    font-family: Galano Grotesque;
+    font-size: 14px;
+    line-height: 24px;
+    color: #1E202C;
+}

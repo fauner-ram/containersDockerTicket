@@ -1,0 +1,164 @@
+@if (loadingData) {
+    <div class="centerContent">
+        <nz-spin nzSimple [nzSize]="'large'"></nz-spin>
+        <div class="loading-message">{{mesaage}}</div>
+    </div>
+}
+
+<section>
+    <div class="content-form">
+        <div class="content-form-title" style="margin-top:3px;" hidden>
+            <h2>TICKETS</h2>
+        </div>
+        <div class="search-container">           
+           
+            <a nz-button nzType="primary" class="btn bg-secondary color-white" (click)="showModal()">Crear</a>
+               
+        </div>
+       
+    </div>
+
+    <nz-table #basicTable [nzData]="revenueCenterList" [nzSize]="'small'" [nzPageSize]="30" [nzFrontPagination]=false>
+        <thead>
+          <tr>
+           
+            <!-- <th nzWidth="15%">Centro de costos</th> -->
+            <th nzWidth="15%">Empleado</th>
+            <th nzWidth="15%">Email</th>
+            <th nzWidth="15%">Fecha de Solicitud</th>
+            <th nzWidth="15%">Observaciones</th>
+            <th nzWidth="15%">Tipo de solicitud</th>
+            <th nzWidth="15%">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(data of revenueCenterList; track data.idExpenditure; let i = $index) {
+          <tr>
+            
+            <!-- <td>{{ data.name }}</td>           -->
+            <td>{{ data?.codigoEmpleado }}</td>
+            <td>{{ data?.email }}</td>
+            <td>{{ data?.fechaSolicitud }}</td>
+            <td>{{ data?.observaciones }}</td>
+            <td>{{ data?.tiposolicitud }}</td>
+                    
+            <td class="actions-items">
+            
+              
+              <a (click)="goToSummaryPage(data.idRevenueCenter, data?.idCostCenterProject )">
+                <span nz-icon nzType="eye" nzTheme="outline" nz-tooltip [nzTooltipTitle]="tooltipSeeItem"></span>
+              </a>
+
+              <a (click)="goItemDetailPage(data.idRevenueCenter, data?.idCostCenterProject )" >
+                <span nz-icon nzType="search" nzTheme="outline" nz-tooltip [nzTooltipTitle]="tooltipContentDetailItem"></span>
+              </a>
+
+              <a (click)="showEdit(data?.idRevenueCenter, data?.idCostCenterProject )">
+                <span nz-icon nzType="edit" nzTheme="outline" nz-tooltip [nzTooltipTitle]="tooltipContentUpdateDetailItem"></span>
+              </a>
+             
+              <div class="btn-delete-order">
+                  <a (click)="deleteOrder(data.idRevenueCenter)">
+                    <span nz-icon nzType="delete" nzTheme="outline" nz-tooltip [nzTooltipTitle]="tooltipContentDeleteDetailItem"></span>
+                  </a>
+              </div>
+          </td>
+          </tr>
+          }
+        </tbody>
+    </nz-table>
+
+    <nz-pagination [(nzPageIndex)]="currentPage" [nzTotal]="totalItems" [nzPageSize]="pageSize"
+    [nzHideOnSinglePage]="true" (nzPageIndexChange)="onPageChange($event)" [nzShowTotal]="totalTemplate"> </nz-pagination>
+    <ng-template #totalTemplate let-total let-range="range">
+        Mostrando {{ range[0] }} - {{ range[1] }} de {{ totalItems }} elementos
+    </ng-template>
+    @if(totalItems < 10){ <span class="total-text">Total de items: {{ totalItems }}</span>}
+</section>
+
+<section>
+    @if (!loadingData) {
+        <nz-modal [(nzVisible)]="isVisible" nzTitle="Crear Ticket" (nzOnCancel)="handleCancel()" [nzFooter]="null" >
+            <ng-container *nzModalContent>
+                <form [formGroup]="form" nz-form>
+                    
+                    <!-- <div nz-row nzJustify="center" nzAlign="middle" [nzGutter]="[24]">
+                        <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="12" [nzLg]="12" [nzXl]="12" [nzXXl]="12">
+                            <nz-form-item nz-row>
+                                <nz-form-label class="form-label"  [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24">
+                                    Nombre Centro De Costos
+                                </nz-form-label>
+            
+                                <nz-form-control [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24">                            
+                                    <input nz-input placeholder=""  type="text" formControlName="name">
+                                </nz-form-control>
+            
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="12" [nzLg]="12" [nzXl]="12" [nzXXl]="12">
+                            <nz-form-item nz-row>
+                                <nz-form-control nzHasFeedback>
+                                    <nz-form-label nzFor="idCostCenterProject" nzNoColon
+                                    class="form-label"  [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24"><p class="asterisco"></p>Proyecto</nz-form-label>                                
+                                    <ng-select formControlName="idCostCenterProject" class="w-100">
+                                        <ng-option *ngFor="let item of projects" [value]="item.idCostCenterProject">{{ item.name }}</ng-option>
+                                    </ng-select>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        
+                    </div>  -->
+                    <div nz-row nzJustify="center" nzAlign="middle" [nzGutter]="[24]"> 
+
+                        <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="8" [nzLg]="8" [nzXl]="8" [nzXXl]="8">
+                            <nz-form-item nz-row>
+                                <nz-form-control nzHasFeedback>
+                                    <nz-form-label nzFor="idCostCenterProject" nzNoColon
+                                    class="form-label"  [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24"><p class="asterisco"></p>--</nz-form-label>                                
+                                    <!-- <ng-select formControlName="idCostCenterProject" class="w-100"  nzPlaceHolder="Seleccionar Proyecto">
+                                        <ng-option *ngFor="let item of projects" [value]="item.idCostCenterProject">{{ item.name }}</ng-option>
+                                    </ng-select> -->
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="8" [nzLg]="8" [nzXl]="8" [nzXXl]="8" >
+                            <nz-form-item nz-row >
+                                <nz-form-control nzHasFeedback>
+                                    <nz-form-label nzFor="fromDate" nzNoColon
+                                    class="form-label"  [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24" ><p class="asterisco"></p>Fecha De Creación</nz-form-label>                                
+                                    <nz-date-picker type="text" nzFormat="yyyy-MM-dd" formControlName="fromDate"></nz-date-picker>                                
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        
+                        <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="8" [nzLg]="8" [nzXl]="8" [nzXXl]="8" >
+                            <nz-form-item nz-row >
+                                <!-- <nz-form-control nzHasFeedback>
+                                    <nz-form-label nzFor="toDate" nzNoColon
+                                    class="form-label"  [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24" ><p class="asterisco"></p>Fecha De Finalización</nz-form-label>                                
+                                    <nz-date-picker type="text" nzFormat="yyyy-MM-dd" formControlName="toDate"></nz-date-picker>                                
+                                </nz-form-control> -->
+                                <nz-form-label class="form-label"  [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24">
+                                    Tipo de Solicitud
+                                </nz-form-label>
+            
+                                <nz-form-control [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24">                            
+                                    <input nz-input placeholder=""  type="text" formControlName="name">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        
+                    </div> 
+                    
+                    <div nz-row>
+                        <div nz-col [nzSpan]="24" class="buttonUpload">
+                            <button nz-button nzType="primary" (click)="handleOk()" class="btn bg-secondary color-white">{{ (!this.idEdit) ? 'Crear' : 'Editar' }}</button>
+                        </div>
+                    </div>
+                </form>
+            </ng-container>
+        </nz-modal>
+    }
+</section>

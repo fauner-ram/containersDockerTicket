@@ -1,0 +1,285 @@
+:host {
+    display: flex;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.app-layout {
+    height: 100vh;
+}
+
+nz-content {
+    margin: 0px 30px 5px 1px;
+}
+
+.sider-ul {
+    margin-top: 20px;
+}
+
+.sider-ul li {
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.sider-ul li:hover {
+    background: #EFF2FF;
+}
+
+.sider-ul li.active {
+    background-color: #EFF2FF;
+    color: white;
+}
+
+.sider-ul-icon {
+    font-size: 20px;
+}
+
+.close-session-container {
+    // margin-top: 100%;
+    // margin-top: 55vh;
+    position: absolute;
+    // bottom: 0;
+    bottom: 5px;
+    // height: 100vh;
+    padding: 13px;
+    // background-color: #1890ff;
+    background-color: #1890ff;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.close-session-container:hover {
+    background-color: #0021f8ea;
+}
+
+.close-session-item {
+    color: white;
+    cursor: pointer;
+}
+
+.close-sesion-text {
+    color: white;
+}
+
+.custom-bg {
+    background-color: white !important;
+    color: black !important;
+    width: 241px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.sider-ul.custom-bg {
+    background-color: white !important;
+}
+
+.inner-content-admin {
+    padding: 24px;
+    // background: #fff;
+    height: 100%;
+    overflow: auto;
+}
+
+
+/* Para pantallas medianas a grandes */
+@media screen and (min-width: 481px) and (max-width: 767px) {}
+
+/* Para tabletas en orientación vertical */
+@media screen and (min-width: 768px) and (max-width: 1024px) {}
+
+/* Para tabletas en orientación horizontal y computadoras pequeñas */
+@media screen and (min-width: 1025px) and (max-width: 1280px) {}
+
+/* Para computadoras de escritorio medianas a grandes */
+@media screen and (min-width: 1281px) and (max-width: 1599px) {}
+
+/* Para computadoras de escritorio medianas a grandes */
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+    
+}
+
+/* Para computadoras de escritorio con resolución Full HD (monitor de 24 pulgadas) */
+@media screen and (min-width: 1920px) and (max-width: 2560px) {}
+
+
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+.menu-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
+
+    .sidebar-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 64px;
+        padding: 8px;
+
+        .logo-hone {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .sidebar-logo img {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        width: 206.82px;
+        // height: 33px;
+        top: 10px;
+    }
+
+    .text-discover {
+        text-align: start;
+        font-weight: bold;
+        margin-bottom: 12px;
+        color: #000000;
+        margin: 15px 0px 0px 25px;
+
+        p {
+            margin: 0;
+            font-size: 16px;
+        }
+    }
+
+    .sider-ul {
+        flex-grow: 1;
+
+        .close-session-item {
+            color: #1890ff;
+            cursor: pointer;
+        }
+    }
+
+    .menu-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+}
+
+// // Opcional: para ocultar texto en colapso
+::ng-deep .ant-menu-item .anticon+span {
+    margin-left: 8px;
+}
+
+// // Pantallas grandes (escritorio full HD o más)
+@media (min-width: 1200px) {
+    .menu-sidebar {
+        .logo-hone {
+            width: 100px;
+        }
+
+        .text-discover p {
+            font-size: 16px;
+        }
+
+        .sider-ul {
+            margin-top: 20px;
+            height: auto;
+        }
+    }
+}
+
+// Pantallas medianas (tablets y laptops)
+@media (max-width: 1199px) and (min-width: 768px) {
+    .menu-sidebar {
+        .logo-hone {
+            width: 80px;
+        }
+
+        .text-discover p {
+            font-size: 14px;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        .sider-ul {
+            margin-top: 20px;
+            height: auto;
+        }
+    }
+}
+
+// Pantallas pequeñas (móviles)
+@media (max-width: 767px) {
+    nz-content {
+        margin: 20px 30px 5px 1px;
+    }
+
+    .menu-sidebar {
+        width: 100% !important;
+        position: relative !important;
+        z-index: 1000;
+        height: 100vh;
+
+        // overflow: auto;
+        // background-color: #001529 !important;
+        .sidebar-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 64px;
+            padding: 8px;
+
+            .logo-hone {
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .sidebar-logo img {
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            width: 60px;
+            // height: 33px;
+            top: 10px;
+            right: 80px;
+        }
+
+        .logo-hone {
+            width: 60px;
+        }
+
+        .text-discover {
+            display: none;
+        }
+
+        .sider-ul {
+            font-size: 14px;
+
+            .close-session-item {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        .sider-ul {
+            margin-top: 20px;
+            height: auto;
+        }
+    }
+
+    .app-layout {
+        flex-direction: row;
+    }
+
+    .inner-content-admin {
+        padding: 12px;
+    }
+}

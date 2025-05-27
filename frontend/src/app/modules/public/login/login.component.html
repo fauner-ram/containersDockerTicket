@@ -1,0 +1,86 @@
+<section class="container-form">
+    <div class="container">
+        <form nz-form [formGroup]="loginForm" class="form-login">
+            <div class="image-container">
+                <img class="image-size" src="../../../../assets/img/login/boxLogin.png" alt="Ilustración">
+            </div>
+            <div class="tittle">
+                <h2>Sign In</h2>
+                <p>Enter your emil to sing up for this app</p>
+            </div>
+
+            <div class="form-group mt-5">
+                <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24" [nzXXl]="24">
+                    <nz-form-item nz-row>
+                        <!-- <nz-form-label class="form-label" nzRequired [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24"
+                                            [nzXl]="24">
+                                            Usuario
+                                        </nz-form-label> -->
+
+                        <nz-form-control [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24"
+                            [nzErrorTip]="emailErrorTip">
+                            <ng-template #emailErrorTip>
+                                <p *ngIf="loginForm.controls['email'].hasError('required')">¡El usuario es
+                                    obligatorio!
+                                </p>
+                            </ng-template>
+                            <input nz-input placeholder="email@domain.com" formControlName="email" >
+                        </nz-form-control>
+
+                    </nz-form-item>
+                </div>
+            </div>
+            <div class="form-group">
+                <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24" [nzXXl]="24">
+                    <nz-form-item nz-row>
+                        <!-- <nz-form-label class="form-label" nzRequired [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24"
+                                            [nzXl]="24">
+                                            Contraseña
+                                        </nz-form-label> -->
+
+                        <nz-form-control [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24"
+                            [nzErrorTip]="passwordErrorTip">
+                            <!-- <nz-input-group> -->
+                            <input nz-input type="password" formControlName="password" placeholder="Password" />
+                            <!-- </nz-input-group> -->
+
+                            <!-- <nz-input-group [nzSuffix]="suffixTemplate"  style="border-radius: 8px;">
+                                <input [type]="passwordVisible ? 'text' : 'password'" nz-input placeholder="Password" formControlName="password" style="border-radius: 8px;"/>
+                            </nz-input-group> -->
+                            <ng-template #passwordErrorTip>
+                                <p *ngIf="loginForm.controls['password'].hasError('required')">¡La contraseña es
+                                    obligatoria!
+                                </p>
+                            </ng-template>
+
+                            <!-- <ng-template #suffixTemplate>
+                                <span style="cursor: pointer; border-radius: 8px;" nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible" ></span>
+                            </ng-template> -->
+                        </nz-form-control>
+
+                    </nz-form-item>
+                </div>
+            </div>     
+
+            <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24" [nzXXl]="24" style="text-align: center; margin-top: 3rem;">
+                
+                <button nz-button nzBlock nzType="primary" class="buttom-login" [disabled]="isSubmitData"
+                    [nzLoading]="isSubmitData" (click)="submitRequest()" nz-popover nzPopoverTitle="" nzJustify="center"
+                    nzAlign="middle" [nzPopoverContent]="enablePopoverMessage" ngSkipHydration>
+
+                    <ng-template #enablePopoverMessage>
+                        <span>Click to log in</span>
+                    </ng-template>
+                    Sign up with email
+                </button>
+            </div>
+
+            <div class="tittle-footer">
+                <p>By clicking continue, you agree to our  <strong>Terms of Service</strong> and <strong>Privacy Policy</strong></p>
+            </div>
+        </form>
+
+
+    </div>
+
+</section>
