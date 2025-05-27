@@ -31,46 +31,7 @@ ng serve
 - **RxJS**: For handling asynchronous data streams.
 - **SweetAlert2**: For displaying alerts and confirmations.
 
-## Project Structure
-```plaintext
-box-telligence/
-├── src/
-│   ├── app/
-│   │   ├── guards/                                      # Guards for service authentication
-│   │   ├── modules/                                     # Public and Private components module
-│   │   |   ├── private/                                 # Private components
-|   │   │   |   ├── client-create/                       # Component for data creation and upload
-|   │   │   |   ├── dashboards/                          # Component folder
-|   |   │   │   |   ├── dashboards-detail/               # Detail component showing a card with a table of uploaded file names
-|   |   │   │   |   ├── dashboards-detail-more/          # Component for analysis results of uploaded data
-|   |   │   │   |   ├── dashboards-list/                 # Component receiving information on new, active, and old data 
-|   |   │   │   |   ├── dashboards-news-save-data-file/  # Component for data creation and upload
-│   │   |   ├── public/                                  # Public components   
-|   │   │   |   ├── login/                               # Login component
-│   │   ├── services/                                    # Services for business logic
-|   │   │   ├── dashboards/                              # Service
-|   │   │   ├── events-manager/                          # Reusable service for sending user ID
-|   │   │   ├── info-box/                                # Service for consuming endpoints
-|   │   │   ├── login/                                   # Service for login, obtaining token and expiration
-|   │   │   ├── toast/                                   # Custom service for user notifications ("success or error")
-│   │   ├── shared/                                      # Shared
-│   │   |   ├── modals/                                  # Modals folder
-|   │   │   |   ├── mistakes/                            # Modal for data upload errors
-|   │   │   |   ├── success-modal/                       # Modal for successful data upload
-│   │   ├── views/                                       # Views
-│   │   |   ├── admin-layout/                            # View for sidebar configuration
-│   │   ├── app-routing.module.ts
-│   │   ├── app.module.ts
-│   │   ├── ng-zorro.module.ts                           # Ng Zorro configuration module
-│   ├── assets/                  # Static resources (images, styles)
-│   ├── environments/            # Environment configurations
-│   └── index.html
-├── README.md
-├── angular.json
-├── package.json
-├── tsconfig.json
-└── ...
-```
+
 
 ## Installation
 Follow these steps to set up the project on your local machine:
@@ -93,13 +54,7 @@ Follow these steps to set up the project on your local machine:
 
 4. Open your browser at [http://localhost:4200](http://localhost:4200).
 
-## Usage
-1. Log in with your credentials.
-2. Navigate through the available modules:
-   - **Clients**: Create and manage clients.
-   - **Project**: View and analyze projects.
-   - **File Upload**: Upload and validate data.
-3. Explore detailed analyses and available charts in the dashboards.
+
 
 ## Contributions
 Contributions are welcome! Please follow these steps:
