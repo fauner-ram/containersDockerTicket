@@ -187,34 +187,7 @@ export class TicketListComponent implements OnInit {
 
     this.costCenterService.getticketData().subscribe((response: any) => {
 
-      // this.revenueCenterList = response.data.data;
-      // if (response.status === "SUCCESS" && response && response.data.data) {
-
-      //   const data = response.data.data;
-
-      //   // Si el usuario no está realizando una búsqueda personalizada
-      //   if (this.queryListFirtsTablePricipal.includes("&year=") && this.queryListFirtsTablePricipal.includes("&month=")) {
-      //     const currentMonth = new Date().getMonth() + 1;
-      //     const currentYear = new Date().getFullYear();
-
-      //     // Filtrar por el mes y año actuales
-      //     this.revenueCenterList = data.filter((item: any) => {
-      //       const itemDate = new Date(item.date);
-      //       return (
-      //         itemDate.getMonth() + 1 === currentMonth &&
-      //         itemDate.getFullYear() === currentYear
-      //       );
-      //     });
-      //     // console.log("Query enviado a la API:", this.queryListFirtsTablePricipal);
-      //     // console.log("Datos obtenidos de la API después del filtro:", response.data?.data);
-
-      //   }
-        // else {
-        // No filtrar si hay una búsqueda personalizada
         this.revenueCenterList = response.data;
-        // console.log("Datos asignados a la tabla después del filtro:", this.revenueCenterList);
-        // }
-
 
         this.totalItems = response.data.totalItems;
         this.cdr.detectChanges();
