@@ -321,7 +321,6 @@ export class TicketListComponent implements OnInit {
 
   }
 
-
   deleteOrder(id: any): void {
     const confirmDelete = this.alertService.showAlertConfirm('Esta seguro de eliminar este registro?', 'Una vez eliminado no podra recuperarlo debera crearlo nuevamente', 'warning', 'Eliminar')
 
