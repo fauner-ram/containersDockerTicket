@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NzModalService } from 'ng-zorro-antd/modal';
-import { Router } from '@angular/router';
 import { InfoBoxeingService } from '../../../../services/info-box/info-boxeing.service';
 import { ToastService } from '../../../../services/toasts/toast.service';
 import { EventManagerService } from '../../../../services/events-manager/event-manager.service';
@@ -15,6 +15,7 @@ describe('MistakeModalComponent', () => {
     await TestBed.configureTestingModule({
       imports: [MistakeModalComponent],
       providers: [
+        { provide: ActivatedRoute, useValue: {} },
         { provide: NzModalService, useValue: {} },
         { provide: Router, useValue: { navigate: () => {} } },
         { provide: InfoBoxeingService, useValue: {} },

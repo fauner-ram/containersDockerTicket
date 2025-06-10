@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TicketService } from '../../../services/ticket/ticket.service';
 
 import { TicketListComponent } from './ticket-list.component';
 
@@ -8,10 +10,12 @@ describe('TicketListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TicketListComponent]
+      imports: [TicketListComponent, HttpClientTestingModule],
+      providers: [
+        { provide: TicketService, useValue: {} }
+      ]
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(TicketListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
