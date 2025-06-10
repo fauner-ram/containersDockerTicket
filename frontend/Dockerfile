@@ -7,6 +7,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+# Instala Chromium para tests headless
+RUN apt-get update && apt-get install -y chromium
+
 # 👇 Instala Angular CLI globalmente
 RUN npm install -g @angular/cli
 
