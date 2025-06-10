@@ -1,6 +1,6 @@
 // Karma configuration file
+process.env.CHROME_BIN = '/usr/bin/chromium';
 module.exports = function (config) {
-  process.env.CHROME_BIN = '/usr/bin/chromium';
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -28,7 +28,13 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromiumHeadless'],
+    customLaunchers: {
+      ChromiumHeadless: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     singleRun: false,
     restartOnFileChange: true
   });
