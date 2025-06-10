@@ -11,10 +11,6 @@ services:
     ports:
       - "4200:4200"
     command: npm run start
-    deploy:
-      resources:
-        limits:
-          memory: 2g
 
   backend:
     build:
