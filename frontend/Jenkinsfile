@@ -19,7 +19,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     script {
-                        sh 'docker run --rm frontend-test npm test'
+                        sh 'docker run --rm frontend-test /bin/sh -c "export CHROME_BIN=/usr/bin/chromium && npm test"'
                     }
                 }
             }
