@@ -16,12 +16,12 @@ describe('MistakeModalComponent', () => {
     await TestBed.configureTestingModule({
       imports: [MistakeModalComponent],
       providers: [
-        { provide: ActivatedRoute, useValue: { params: of({}) } },
+        { provide: ActivatedRoute, useValue: { params: of({}), snapshot: { params: {} } } },
         { provide: NzModalService, useValue: {} },
         { provide: Router, useValue: { navigate: () => {} } },
         { provide: InfoBoxeingService, useValue: {} },
         { provide: ToastService, useValue: {} },
-        { provide: EventManagerService, useValue: {} }
+        { provide: EventManagerService, useValue: { getDataUser: () => ({}) } }
       ]
     })
     .compileComponents();
