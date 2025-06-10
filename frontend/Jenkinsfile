@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/fauner-ram/containersDockerTicket.git'
+            }
+        }
+        stage('Build Frontend Docker Image') {
+            steps {
+                dir('frontend') {
+                    script {
+                        sh 'docker build -t frontend-test .'
+                    }
+                }
+            }
+        }
+        stage('Run Frontend Tests') {
+            steps {
+                dir('frontend') {
+                    script {
+                        sh 'docker run --rm frontend-test npm test'
+                    }
+                }
+            }
+        }
+    }
+}

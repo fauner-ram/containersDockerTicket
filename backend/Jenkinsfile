@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/fauner-ram/containersDockerTicket.git'
+            }
+        }
+        stage('Build Backend Docker Image') {
+            steps {
+                dir('backend') {
+                    script {
+                        sh 'docker build -t backend-test .'
+                    }
+                }
+            }
+        }
+        stage('Run Backend Tests') {
+            steps {
+                dir('backend') {
+                    script {
+                        sh 'docker run --rm backend-test npm test'
+                    }
+                }
+            }
+        }
+    }
+}
