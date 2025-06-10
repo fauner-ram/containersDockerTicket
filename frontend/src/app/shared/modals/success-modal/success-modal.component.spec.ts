@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NzModalRef } from 'ng-zorro-antd/modal';
 import { Router } from '@angular/router';
 
@@ -10,7 +11,7 @@ describe('SuccessModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SuccessModalComponent],
+      imports: [SuccessModalComponent, HttpClientTestingModule],
       providers: [
         { provide: NzModalRef, useValue: {} },
         { provide: Router, useValue: { navigate: () => {} } }

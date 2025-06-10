@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { of } from 'rxjs';
 import { TicketService } from '../../../services/ticket/ticket.service';
 
 import { TicketListComponent } from './ticket-list.component';
@@ -12,7 +13,7 @@ describe('TicketListComponent', () => {
     await TestBed.configureTestingModule({
       imports: [TicketListComponent, HttpClientTestingModule],
       providers: [
-        { provide: TicketService, useValue: {} }
+        { provide: TicketService, useValue: { getticketData: () => of([]) } }
       ]
     })
     .compileComponents();
