@@ -19,7 +19,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     script {
-                        sh 'docker run --rm frontend-test /bin/sh -c "export CHROME_BIN=/usr/bin/chromium && node --max-old-space-size=1024 ./node_modules/@angular/cli/bin/ng test --watch=false --browsers=ChromeHeadlessNoSandbox"'
+                        sh 'docker run --rm -v $PWD/coverage:/app/coverage frontend-test /bin/sh -c "export CHROME_BIN=/usr/bin/chromium && node --max-old-space-size=1024 ./node_modules/@angular/cli/bin/ng test --watch=false --browsers=ChromeHeadlessNoSandbox"'
                     }
                 }
             }
