@@ -30,7 +30,7 @@ pipeline {
                     script {
                         sh 'curl -Os https://uploader.codecov.io/latest/linux/codecov'
                         sh 'chmod +x codecov'
-                        sh './codecov -t 6066126f-771f-46d5-8d48-2b8770759d75'
+                        sh './codecov -t 6066126f-771f-46d5-8d48-2b8770759d75 -f coverage/lcov.info'
                     }
                 }
             }
