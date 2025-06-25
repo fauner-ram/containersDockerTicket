@@ -17,6 +17,9 @@ RUN npm install -g @angular/cli
 # Copia el resto del código fuente
 COPY . .
 
+# Crear explícitamente el directorio coverage con permisos abiertos
+RUN mkdir -p /app/coverage && chmod 777 /app/coverage
+
 # Exponer el puerto
 EXPOSE 4200
 
