@@ -32,6 +32,7 @@ pipeline {
                 dir('frontend') {
                     script {
                         sh 'ls -l coverage || true' // Debug: mostrar contenido de coverage
+                        sh 'cat coverage/lcov.info || echo "lcov.info no existe"' // Mostrar contenido del archivo
                         sh 'curl -Os https://uploader.codecov.io/latest/linux/codecov'
                         sh 'chmod +x codecov'
                         sh './codecov -f coverage/lcov.info'
