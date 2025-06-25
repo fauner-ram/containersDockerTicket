@@ -43,11 +43,11 @@ module.exports = function (config) {
         ]
       }
     },
-    singleRun: false,
-    restartOnFileChange: true,
-    browserDisconnectTimeout: 10000,
+    singleRun: true, // Cambiado a true para CI
+    restartOnFileChange: false, // No reiniciar en CI
+    browserDisconnectTimeout: 120000, // 2 minutos
     browserDisconnectTolerance: 3,
-    browserNoActivityTimeout: 60000,
-    captureTimeout: 120000
+    browserNoActivityTimeout: 240000, // 4 minutos
+    captureTimeout: 240000 // 4 minutos
   });
 };

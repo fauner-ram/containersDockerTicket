@@ -28,9 +28,19 @@ pipeline {
             steps {
                 dir('frontend') {
                     script {
+                        sh 'ls -l coverage || true' // Debug: mostrar contenido de coverage
                         sh 'curl -Os https://uploader.codecov.io/latest/linux/codecov'
                         sh 'chmod +x codecov'
                         sh './codecov -t 6066126f-771f-46d5-8d48-2b8770759d75 -f coverage/lcov.info'
+                    }
+                }
+            }
+            post {
+                always {
+                    dir('frontend') {
+                        script {
+                            sh 'ls -l coverage || true' // Siempre mostrar contenido para debug
+                        }
                     }
                 }
             }
